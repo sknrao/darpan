@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script>
+    // Function to save input fields' values to localStorage
+    function saveFormData() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      // Store the values in localStorage
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+    }
+
+    // Function to load input fields' values from localStorage
+    function loadFormData() {
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+
+      // If data exists in localStorage, pre-fill the fields
+      if (username) document.getElementById('username').value = username;
+      if (password) document.getElementById('password').value = password;
+    }
+
+    // Event listener to save the data when the user types
+    window.addEventListener('DOMContentLoaded', (event) => {
+      loadFormData();
+      
+      // Event listener to save the data on each input change
+      document.getElementById('username').addEventListener('input', saveFormData);
+      document.getElementById('password').addEventListener('input', saveFormData);
+    });
+  </script>
+</head>
+<body>
+  <h1>Login</h1>
+
+  <form action="/login" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required><br><br>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <%= message ? `<p style="color:red;">${message}</p>` : '' %>
+</body>
+</html>
