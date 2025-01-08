@@ -19,7 +19,7 @@ const App = () => {
     <div>
       <Navbar />
       <div style={{ padding: '20px' }}>
-        {activeWebsite === 'home' && <h1>Welcome to the Home Page</h1>}
+        {activeWebsite === 'home' && <h1>Welcome to the Home Page of Unified-web</h1>}
         {activeWebsite === 'website1' && (
           <iframe src="/website1/Amazon.html" title="Website 1" style={{ width: '100%', height: '80vh', border: 'none' }}></iframe>
         )}
